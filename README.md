@@ -1,6 +1,6 @@
 # Rock-Paper-Scissors 
 
-This is a ***Solidity*** project created with ***Truffle*** that addresses the coding challenge from [this doc](https://docs.google.com/document/d/1z3CSi9vHsKo3Ap9qdeJYasANyTYz00RFD9Yw2Go4HHU/edit.).
+This is a ***Solidity*** project created with ***Truffle*** that addresses the coding challenge from [this doc](https://docs.google.com/document/d/1z3CSi9vHsKo3Ap9qdeJYasANyTYz00RFD9Yw2Go4HHU/edit).
 It implements a simple rock-paper-scissors game.
 
 ### Requirements
