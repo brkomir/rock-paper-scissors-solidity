@@ -9,16 +9,25 @@ contract RockPaperScissors is RockPaperScissorsGameRules, GameVault {
     struct Game {
         uint256 id;
         address player1;
-        bytes32 player1SecretChoice;
-        Choice player1RevealedChoice;
+        bytes32 player1SecretChoice;        
         address player2;
-        Choice player2Choice;
         uint256 pot;
+        address winner;
         uint256 startTime;
         bool resolved;
         bool expired;
-        address winner;
+        Choice player1RevealedChoice;
+        Choice player2Choice;
     }
+    
+    address public owner;
+    uint256 public entryFee;
+    Game[] public games;
+    uint256[] activeGameIds;
+    // this field is public for purpose to incetivise players to start a new game
+    // in case when undistributedFunds > 0
+    uint256 public undistributedFunds;
+    mapping(address => Game[]) playerGames;
 
     event NewGame(uint256 gameId, address createdBy);
     event SecondPlayerFound(uint256 gameId);
@@ -51,15 +60,6 @@ contract RockPaperScissors is RockPaperScissorsGameRules, GameVault {
         );
         _;
     }
-
-    address public owner;
-    uint256 public entryFee;
-    Game[] public games;
-    uint256[] activeGameIds;
-    // this field is public for purpose to incetivise players to start a new game
-    // in case when undistributedFunds > 0
-    uint256 public undistributedFunds;
-    mapping(address => Game[]) playerGames;
 
     constructor(uint256 _entryFee) {
         entryFee = _entryFee;
@@ -263,5 +263,6 @@ contract RockPaperScissors is RockPaperScissorsGameRules, GameVault {
         return _gameStartTime + _period <= block.timestamp;
     }
 
+    // reject any incoming ether (not payable)
     fallback() external {}
 }
