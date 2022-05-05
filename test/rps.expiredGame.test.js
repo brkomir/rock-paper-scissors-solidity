@@ -1,6 +1,6 @@
 const RockPaperScissors = artifacts.require('RockPaperScissors');
 const Choice = artifacts.require('RockPaperScissorsGameRules').Choice;
-const helper = require('./helper').default;
+const helper = require('./helper');
 
 contract('RockPaperScissors - expired game', (accounts) => {
     const player1 = accounts[0];

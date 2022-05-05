@@ -1,5 +1,5 @@
 const RockPaperScissors = artifacts.require('RockPaperScissors');
-const helper = require('./helper').default;
+const helper = require('./helper');
 
 contract('RockPaperScissors - game entry fee', (accounts) => {
     let rps;

@@ -1,6 +1,6 @@
 const RockPaperScissors = artifacts.require('RockPaperScissors');
 const Choice = artifacts.require('RockPaperScissorsGameRules').Choice;
-const helper = require('./helper').default;
+const helper = require('./helper');
 
 // TODO: assert not playabe if game is resolved
 contract('RockPaperScissors - second player moves', (accounts) => {

@@ -23,11 +23,11 @@ contract RockPaperScissors is RockPaperScissorsGameRules, GameVault {
     address public owner;
     uint256 public entryFee;
     Game[] public games;
-    uint256[] activeGameIds;
     // this field is public for purpose to incetivise players to start a new game
     // in case when undistributedFunds > 0
     uint256 public undistributedFunds;
     mapping(address => Game[]) playerGames;
+    uint256[] activeGameIds;
 
     event NewGame(uint256 gameId, address createdBy);
     event SecondPlayerFound(uint256 gameId);
@@ -69,7 +69,7 @@ contract RockPaperScissors is RockPaperScissorsGameRules, GameVault {
     function changeEntryFee(uint256 _newFee) external {
         require(
             msg.sender == owner,
-            "Only the contract owner can chage the entry fee"
+            "Only the contract's owner can chage the entry fee"
         );
 
         entryFee = _newFee;

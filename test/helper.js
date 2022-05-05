@@ -41,7 +41,7 @@ const evmIncreaseTime = async (seconds) => {
     );
 };
 
-exports.default = {
+module.exports = {
     SECRET,
     ENTRY_FEE,
     assert: expect,
